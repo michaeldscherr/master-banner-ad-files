@@ -1,0 +1,30 @@
+@import './settings';
+
+.banner {
+    &__frame {
+        @include frame;
+    }
+}
+
+#banner {
+    margin: 0;
+    padding: 0;
+    &__wrap {
+        background-color: map_get($colors, bg);
+    }
+    &__link {
+        @include inheritWH;
+        overflow: hidden;
+        position: relative;
+        &::before {
+            @include inheritWH;
+            border: solid map_get($colors, bg) 1px;
+            box-sizing: border-box;
+            content: "";
+            position: absolute;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
